@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // 编译输出的目标版本
+    "target": "es5",
+    "useDefineForClassFields": true,
+    // 采用的模块版本
+    "module": "esnext",
+    "moduleResolution": "node",
+    // 以严格模式解析
+    "strict": true,
+    // 在.tsx文件中支持jsx
+    "jsx": "preserve",
+    // 允许编译javascript文件
+    "allowJs": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "./"
+  },
+  "include": [
+    "src/*",
+    "src/**/*.vue",
+    "src/**/*.tsx",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "mock/*"
+  ],
+  "exclude": ["node_modules"]
+}
