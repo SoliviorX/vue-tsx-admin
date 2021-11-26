@@ -7,4 +7,6 @@ declare module '*.vue' {
   export default component
 }
 
-declare module "js-cookie"
+declare module 'js-cookie'
+declare module 'el-plus-powerful-table'
+declare module 'nprogress'
