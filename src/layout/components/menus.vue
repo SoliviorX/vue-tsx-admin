@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts">
-import menusLogo from "./menusLogo/index.vue";
-import menusItem from "./menusItem/index.vue";
+import menusLogo from "./menus-logo.vue";
+import menusItem from "./menus-item.vue";
 import { defineComponent, computed } from 'vue'
 import { useRoute } from "vue-router";
 

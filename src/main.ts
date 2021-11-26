@@ -14,6 +14,7 @@ import directive from './directives'
 
 // element-plus
 import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import powerfulTable from 'el-plus-powerful-table' // 更强大的table插件
 
@@ -90,7 +91,7 @@ app
   .use(router)
   .use(store)
   .use(powerfulTable)
-  .use(ElementPlus, { size: Cookies.get('size') || 'smalll', zIndex: 3000, locale })
+  .use(ElementPlus, { size: Cookies.get('size') || 'small', zIndex: 3000, locale: locale })
   .use(VueI18n)
   .mount('#app')
 

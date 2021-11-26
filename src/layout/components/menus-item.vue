@@ -88,16 +88,15 @@
   </div>
 </template>
 
-<script lang='ts'>
-import { defineComponent, PropType } from "vue"
+<script>
+import { defineComponent } from "vue"
 import { useI18n } from 'vue-i18n'
-import { Routers } from '@/router/index'
 
 export default defineComponent({
   name: 'menusItem',
   props: {
     item: {
-      type: Object as PropType<Routers>,
+      type: Object,
       default: () => { },
     },
     index: {
@@ -117,10 +116,10 @@ export default defineComponent({
   setup () {
     const { t } = useI18n()
 
-    const text = (e: Routers) => {
+    const text = (e) => {
       // 判断有没有locale
       if ((e.children && e.children[0].meta?.locale) || e.meta?.locale) {
-        return t(((e.children && e.children[0].meta?.locale) || e.meta?.locale) as string|number)
+        return t((e.children && e.children[0].meta?.locale) || e.meta?.locale)
         // 没有就使用title
       } else if ((e.children && e.children[0].meta?.title) || e.meta?.title) {
         return (e.children && e.children[0].meta?.title) || e.meta?.title

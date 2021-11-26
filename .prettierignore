@@ -1,2 +1,6 @@
 /src/language/zh-and-en.ts
 /src/language/zh-TW.ts
+/src/views/**/locales/*.ts
+/src/components/**/locales/*.ts
+/src/utils/locales/*.ts
+/public/static/zh_CN.js

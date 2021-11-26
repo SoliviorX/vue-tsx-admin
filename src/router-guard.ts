@@ -39,6 +39,7 @@ router.beforeEach((to, from, next) => {
       Nprogress.done()
     }
   } else {
+    console.log('无法获取token，未登录')
     setTimeout(() => {
       notRedirect.indexOf(to.path) !== -1 ? next() : next('/login')
     }, 1000)

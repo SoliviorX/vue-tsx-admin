@@ -22,7 +22,7 @@ export function getLangAll(): RtnMessage {
   getLangFiles(viewModules, message)
   getLangFiles(componentModules, message)
   getLangFiles(utilsModules, message)
-
+  console.log('i18n message', message)
   return message as RtnMessage
 }
 type MList = {
@@ -43,7 +43,7 @@ function getLangFiles(mList: MList, msg: Message) {
         // 将modulesList中的数据写入localeObj
         for (let i in mList[path].default) {
           localeObj['zh-CN'][i] = mList[path].default[i]
-          localeObj['en-US'][i] = i.replace(/\./g, '')
+          localeObj['en-US'][i] = i.replace(/\./g, ' ')
         }
         // 将localeObj合并到msg中
         for (let i in localeObj) {
@@ -57,7 +57,7 @@ function getLangFiles(mList: MList, msg: Message) {
           }
         }
       } else {
-        // 获取文件名
+        //  获取文件名
         let pathName = path.substr(path.lastIndexOf('/') + 1, 5)
 
         if (msg[pathName]) {
