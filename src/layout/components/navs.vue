@@ -119,6 +119,7 @@ export default {
   .left {
     display: flex;
     align-items: center;
+    cursor: pointer;
     .dropdown-span {
       transition: all 0.4s;
       &:hover {

@@ -64,7 +64,7 @@ export type defaultDataType = {
 }
 
 export default {
-  name: 'Vite-TSX-vue-admin',
+  name: 'Vite-TSX-Vue-Admin',
   themeColor,
   // icon图标
   iconfont: 'viteIcon',

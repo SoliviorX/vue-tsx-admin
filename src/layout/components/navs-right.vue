@@ -48,7 +48,7 @@
             </el-dropdown-item>
             <el-dropdown-item divided>
               <a
-                href="https://github.com/Peng-Xiao-Shuai-0902/vite-vue-admin"
+                href="https://github.com/Shideshanxx/vue-tsx-admin"
                 style="
                   display: block;
                   text-decoration: none;
@@ -259,6 +259,7 @@ export default defineComponent({
   .item {
     display: flex;
     align-items: center;
+    cursor: pointer;
     .icon {
       width: 35px;
       height: 35px;

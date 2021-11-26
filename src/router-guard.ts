@@ -13,8 +13,8 @@ router.beforeEach((to, from, next) => {
 
   if (
     // window.location.host === 'Shideshanxx.github.io' &&
-    (import.meta as any).env.BASE_URL === '/vite-vue-admin/' &&
-    to.path === '/vite-vue-admin/'
+    (import.meta as any).env.BASE_URL === '/vite-tsx-vue-admin/' &&
+    to.path === '/vite-tsx-vue-admin/'
   ) {
     next('/')
     Nprogress.done()

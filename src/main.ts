@@ -14,14 +14,13 @@ import directive from './directives'
 
 // element-plus
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import powerfulTable from 'el-plus-powerful-table' // 更强大的table插件
 
 // 注入svg脚本
 import 'virtual:svg-icons-register'
 
-// 导入css
+// 导入css（element的样式包含在其中）
 import './styles/index.scss'
 
 // 路由守卫
