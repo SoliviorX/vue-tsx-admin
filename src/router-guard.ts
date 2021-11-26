@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
   Nprogress.start()
 
   if (
-    window.location.host === 'Shideshanxx.github.io' &&
+    // window.location.host === 'Shideshanxx.github.io' &&
     (import.meta as any).env.BASE_URL === '/vite-vue-admin/' &&
     to.path === '/vite-vue-admin/'
   ) {
@@ -29,7 +29,7 @@ router.beforeEach((to, from, next) => {
   // 1.2.1 重定向到登录页
   // 1.2.2 留在当前页
   if (store.getters.getToken) {
-    if (store.getters.getMenu.length === 0) {
+    if (store.getters.getMenus.length === 0) {
       store.dispatch('userInfo').then(() => {
         next({ ...to, replace: true })
         Nprogress.done()

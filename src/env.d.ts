@@ -10,3 +10,4 @@ declare module '*.vue' {
 declare module 'js-cookie'
 declare module 'el-plus-powerful-table'
 declare module 'nprogress'
+declare module 'mockjs'

@@ -45,6 +45,10 @@ if ((import.meta as any).env.MODE !== 'development') {
   window.console.log = () => {}
 }
 
+// mock数据
+import { mockXHR } from '../mock/index'
+mockXHR()
+
 // 向所有组件实例注入自定义属性声明
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
