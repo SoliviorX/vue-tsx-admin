@@ -568,6 +568,11 @@
   resolved "https://registry.npmmirror.com/@types/minimist/download/@types/minimist-1.2.2.tgz?cache=0&sync_timestamp=1637267478331&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fminimist%2Fdownload%2F%40types%2Fminimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha1-7nceK6Sz3Fs3KTXVSf2WF780W4w=
 
+"@types/minimist@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmmirror.com/@types/minimist/download/@types/minimist-1.2.2.tgz?cache=0&sync_timestamp=1637267454418&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fminimist%2Fdownload%2F%40types%2Fminimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
+  integrity sha1-7nceK6Sz3Fs3KTXVSf2WF780W4w=
+
 "@types/node@*":
   version "16.11.9"
   resolved "https://registry.npmmirror.com/@types/node/download/@types/node-16.11.9.tgz?cache=0&sync_timestamp=1637310802673&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-16.11.9.tgz#879be3ad7af29f4c1a5c433421bf99fab7047185"

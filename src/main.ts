@@ -103,7 +103,6 @@ directive(app)
  * app.config.globalProperties添加一个可以在应用的任何组件实例中访问的全局 property。这个方式用来替代vue2中的vue.prototype.xxx
  */
 app.config.errorHandler = (error: unknown, instance: any, info: string) => {
-  console.log(error)
   let data: log = {
     url: window.location.href,
     info,

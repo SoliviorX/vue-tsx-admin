@@ -19,5 +19,10 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "i18n-ally.localesPaths": []
+  "i18n-ally.localesPaths": [
+    "src/language",
+    "src/utils/locales",
+    "src/views/home/locales",
+    "src/views/login/locales"
+  ]
 }

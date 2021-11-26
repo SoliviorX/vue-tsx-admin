@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div :class="['left']">
-      leftleftleftleft
+      <menus :collapse="collapse"></menus>
     </div>
     <div class="right" :style="{marginLeft: '65px', width: 'calc(100% - 65px)'}">
       <div class="top" :style="{
@@ -26,16 +26,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import menus from './components/menus.vue'
+
+import { computed, defineComponent } from 'vue'
 import { useStore } from 'vuex'
-export default {
+export default defineComponent({
+  components: {
+    menus
+  },
   setup() {
     const store = useStore().state.settings.drawerSetting
+    const collapse = computed(() => !!store.defaultMenu)
     return {
-      store
+      store,
+      collapse
     }
   }
-}
+})
 </script>
 
 <style lang='scss' scoped>
