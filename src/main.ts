@@ -33,7 +33,7 @@ import 'dayjs/locale/en'
 import en from 'element-plus/lib/locale/lang/en'
 
 // i18n
-import VueI18n from './language'
+import VueI18n from './language/index'
 import { useI18n } from 'vue-i18n'
 
 // 全局静态配置

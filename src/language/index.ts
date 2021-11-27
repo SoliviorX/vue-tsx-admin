@@ -1,4 +1,4 @@
-import { createI18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n' //引入vue-i18n组件
 import defaultData from '@/config/default-data'
 
 const modules = (import.meta as any).globEager('./*')
@@ -15,37 +15,41 @@ type RtnMessage = {
   'en-US': {}
   [s: string]: {}
 }
-
 export function getLangAll(): RtnMessage {
   let message: Message = {}
   getLangFiles(modules, message)
   getLangFiles(viewModules, message)
   getLangFiles(componentModules, message)
   getLangFiles(utilsModules, message)
-  console.log('i18n message', message)
+  console.log('i18n', message)
   return message as RtnMessage
 }
+/**
+ * 获取所有语言文件
+ * @param {Object} mList
+ */
 type MList = {
   [s: string]: { default: { [s: string]: string } }
 }
 function getLangFiles(mList: MList, msg: Message) {
   for (let path in mList) {
     if (mList[path].default) {
-      // 判断是否中英文混合文件
+      // 判断是否中英混合文件
       if (/zh-and-en/.test(path)) {
         type LocaleObj = {
           [s: string]: any
         }
+
         let localeObj: LocaleObj = {
           'zh-CN': {},
           'en-US': {}
         }
-        // 将modulesList中的数据写入localeObj
+        // 拆解
         for (let i in mList[path].default) {
           localeObj['zh-CN'][i] = mList[path].default[i]
           localeObj['en-US'][i] = i.replace(/\./g, ' ')
         }
-        // 将localeObj合并到msg中
+        // 合并
         for (let i in localeObj) {
           if (msg[i]) {
             msg[i] = {
@@ -73,18 +77,22 @@ function getLangFiles(mList: MList, msg: Message) {
   }
 }
 
-// 将locale信息存到localStorage
+/**
+ * 修改语言
+ * @param lang
+ */
 export function SETLOCALE(lang: string) {
   window.localStorage.setItem('locale', lang)
-  // reload页面重置createI18n，以及执行 useI18n 里面的 t 函数
+
   window.location.reload()
 }
 
 console.log('locale', defaultData.locale)
+//注册i8n实例并引入语言文件
 const i18n = createI18n({
   legacy: false,
   locale: defaultData.locale,
-  message: getLangAll()
+  messages: getLangAll()
 })
 
-export default i18n
+export default i18n //将i18n暴露出去，在main.js中引入挂载
