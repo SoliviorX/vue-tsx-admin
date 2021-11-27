@@ -12,7 +12,7 @@
               width: `calc(100% - ${
                 store.leftMargin || 200
               }px)`,
-            }
+          }
       ">
       <div class="top" :style="{
           boxShadow:
@@ -48,6 +48,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore().state.settings.drawerSetting
+    // collapse为false表示折叠，true表示展开
     const collapse = computed(() => !!store.defaultMenu)
 
     function isCollapse (e) {

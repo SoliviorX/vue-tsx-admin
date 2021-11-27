@@ -81,7 +81,7 @@ export default {
       label: '中文（简）'
     },
     {
-      value: 'zg-TW',
+      value: 'zh-TW',
       label: '中文（繁）'
     },
     {

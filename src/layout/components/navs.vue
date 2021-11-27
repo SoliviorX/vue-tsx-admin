@@ -49,7 +49,6 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import navsRight from './navs-right.vue'
 import { useStore } from 'vuex'
-// import { useI18n } from 'vue-i18n'
 
 export default {
   components: {
@@ -62,7 +61,6 @@ export default {
     },
   },
   setup (props) {
-    // const { t } = useI18n()
     const store = useStore()
     let route = useRoute()
     let matched = []
@@ -74,6 +72,8 @@ export default {
 
       return arr.filter(item => item.meta && item.meta.title && !item.meta.breadcrumb)
     })
+
+    console.log(matched)
 
     const handleCollapse = () => {
       store.commit('setSetting', { val: props.collapse ? 0 : 1, key: 'defaultMenu' })
@@ -101,7 +101,6 @@ export default {
     window.addEventListener('storage', storageChange);
 
     return {
-      // t,
       matched,
       handleCollapse
     }

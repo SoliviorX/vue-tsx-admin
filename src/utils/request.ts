@@ -44,10 +44,10 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   (response) => {
-    console.log('response拦截', response)
     // 响应数据处理
     let code
     if (ENV.VITE_MOCK === 'true') {
+      console.log('ajax-response', response.config.url, response)
       code = JSON.parse(response.request.response).code
     } else {
       code = response.data.code || response.status

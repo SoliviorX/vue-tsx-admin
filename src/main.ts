@@ -90,7 +90,7 @@ app
   .use(router)
   .use(store)
   .use(powerfulTable)
-  .use(ElementPlus, { size: Cookies.get('size') || 'small', zIndex: 3000, locale: locale })
+  .use(ElementPlus, { size: Cookies.get('size') || 'small', zIndex: 3000, locale })
   .use(VueI18n)
   .mount('#app')
 

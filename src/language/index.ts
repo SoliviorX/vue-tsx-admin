@@ -76,9 +76,11 @@ function getLangFiles(mList: MList, msg: Message) {
 // 将locale信息存到localStorage
 export function SETLOCALE(lang: string) {
   window.localStorage.setItem('locale', lang)
+  // reload页面重置createI18n，以及执行 useI18n 里面的 t 函数
   window.location.reload()
 }
 
+console.log('locale', defaultData.locale)
 const i18n = createI18n({
   legacy: false,
   locale: defaultData.locale,

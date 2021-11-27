@@ -37,7 +37,7 @@ export default defineConfig({
     hmr: {
       overlay: false
     },
-    port: 3000,
+    port: 3002,
     open: false,
     https: false,
     proxy: {}

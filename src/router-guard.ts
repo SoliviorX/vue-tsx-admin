@@ -20,8 +20,8 @@ router.beforeEach((to, from, next) => {
     Nprogress.done()
   }
 
-  // 1 判断是否有token
-  // 1.1 判断是否有menus(动态路由。页面刷新后vuex会重置)
+  // 1 判断是否有token（即是否请求过login接口）
+  // 1.1 判断是否有menus(动态路由。页面刷新后vuex会重置)（请求userinfo接口会获取到menus）
   // 1.1.1 重新获取动态路由表
   // 1.1.2 直接跳转 next()
 

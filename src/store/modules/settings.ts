@@ -60,7 +60,7 @@ let mutations = {
   },
   // 修改layout setting
   // 不缓存到localstorage，用于非全局配置栏目修改全局配置的数据
-  setSettings(state: SettingsState, { key, val }: { key: string; val: number }) {
+  setSetting(state: SettingsState, { key, val }: { key: string; val: number }) {
     if (state.drawerSetting) {
       state.drawerSetting[key] = val
     }
