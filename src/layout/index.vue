@@ -26,6 +26,10 @@
           top: 0,
         }">
         <navs @isCollapse="isCollapse" :collapse="collapse"></navs>
+        <tags-view
+          :collapse="collapse"
+          v-if="store.isTagsView"
+        ></tags-view>
       </div>
       <div class="view" id="view" :style="{
           minHeight: `calc(100% - ${store.isTagsView ? '91px' : '50px'})`
@@ -39,12 +43,14 @@
 <script>
 import menus from './components/menus.vue'
 import navs from './components/navs.vue'
+import TagsView from './components/tags-view.vue'
 import { computed, defineComponent } from 'vue'
 import { useStore } from 'vuex'
 export default defineComponent({
   components: {
     menus,
-    navs
+    navs,
+    TagsView
   },
   setup() {
     const store = useStore().state.settings.drawerSetting

@@ -65,15 +65,11 @@ export default {
     let route = useRoute()
     let matched = []
     matched = computed(() => {
+      // route.matched:与给定路由地址匹配的标准化的路由记录数组
       let arr = route.matched
-      if (arr[0].path !== '/') {
-        arr = route.matched
-      }
 
       return arr.filter(item => item.meta && item.meta.title && !item.meta.breadcrumb)
     })
-
-    console.log(matched)
 
     const handleCollapse = () => {
       store.commit('setSetting', { val: props.collapse ? 0 : 1, key: 'defaultMenu' })

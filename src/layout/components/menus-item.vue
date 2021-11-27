@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.hidden" :class="{ _submenu: collapse }">
+  <div v-if="!item.hidden" :class="{_submenu: collapse}">
     <el-sub-menu
       :index="item.name"
       v-if="item.children && item.children.length > 1"
@@ -32,7 +32,7 @@
       ></menusItem>
     </el-sub-menu>
 
-    <!-- 二级菜单下有菜单的情况下显示 -->
+    <!-- 没有子菜单的情况下显示 -->
     <el-menu-item
       :data-count="count"
       :index="(item.children && item.children[0].name) || item.name"
@@ -60,8 +60,7 @@
             defaultData.iconfont,
           ]"
         ></i>
-
-        <span class="metaTitle">
+        <span class="metaTitle" v-show="!collapse || count !== 1">
           {{ text(item) }}
         </span>
       </a>
@@ -137,10 +136,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-._submenu > li :deep() .el-submenu__icon-arrow {
+._submenu > li :deep() .el-sub-menu__icon-arrow {
   display: none;
 }
-
 .metaTitle {
   margin-left: 6px;
 }

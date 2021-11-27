@@ -253,12 +253,14 @@ const mutations = {
   },
   tagsCommit(state: UserState, val: { to: Tags; removeIndex?: number[]; name?: string }) {
     if (val.removeIndex !== undefined || val.name !== undefined) {
+      // 删去除name外其他所有tag
       if (val.name) {
         const names = [val.name, 'home']
         state.tags = state.tags.filter((item) => names.indexOf(item.name as string) !== -1)
         return
       }
 
+      // 根据removeIndex删除部分tag
       val.removeIndex && state.tags.splice(val.removeIndex[0], val.removeIndex[1])
     } else {
       state.tags.push(val.to)
