@@ -23,6 +23,9 @@ import 'virtual:svg-icons-register'
 // 导入css（element的样式包含在其中）
 import './styles/index.scss'
 
+// 全局组件，在main.ts中进行注册即可在所有组件中直接使用。
+import uploadFile from './components/upload-file/index.vue'
+
 // 路由守卫
 import './router-guard'
 
@@ -96,6 +99,9 @@ app
 
 // 添加全局自定义指令
 directive(app)
+
+// 注册全局组件
+app.component('upload-file', uploadFile)
 
 /**
  * 每个 Vue 应用都会暴露一个 config 对象
