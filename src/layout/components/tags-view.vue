@@ -122,8 +122,9 @@ export default defineComponent({
       key: 'closeAll',
       icon: Minus,
     }]
-
+    // 在store中初始写入了一个不可删除的tag：home
     let tags = computed<Tags[]>(() => store.state.user.tags)
+
     // 当前路由的name
     let currentName = computed(() => {
       // tags中是否已经存在当前路由
@@ -167,8 +168,10 @@ export default defineComponent({
     }
 
     // 点击tag跳转
-    function navTo(item: Tags) {
-      if(item.name === currentName.value) {
+    function navTo (item: Tags) {
+      console.log('点击tag跳转', item)
+      if (item.name === currentName.value) {
+        // 手动重定向页面到 '/redirect' 页面
         router.replace({
           name: 'redirect',
           params: {
@@ -177,12 +180,13 @@ export default defineComponent({
           },
           query: item.query
         })
+
         return
       } else {
         router.push({
           name: item.name,
           params: {
-            ...item.params
+            ...item.params,
           },
           query: item.query
         })

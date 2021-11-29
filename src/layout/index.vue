@@ -31,10 +31,22 @@
           v-if="store.isTagsView"
         ></tags-view>
       </div>
-      <div class="view" id="view" :style="{
+
+      <div class="view" id="view"  v-press-key:s="() => $throttle(() => useSearch = true, 100)"
+        :style="{
           minHeight: `calc(100% - ${store.isTagsView ? '91px' : '50px'})`
         }">
-        content
+        <transition name="searchView">
+          <search-view v-show="useSearch" class="search-view"></search-view>
+        </transition>
+
+        <transition name="searchView">
+          <!-- esc 对应的keypress key值为escape -->
+          <div v-show="!useSearch" v-press-key:escape="() => $throttle(() => useSearch = false, 100)">
+            <router-view v-if="!meta.iframeUrl"></router-view>
+            <iframe v-else :src="meta.iframeUrl" frameborder='0' v-bind="meta.iframeData"></iframe>
+          </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -44,18 +56,27 @@
 import menus from './components/menus.vue'
 import navs from './components/navs.vue'
 import TagsView from './components/tags-view.vue'
+import SearchView from './components/search-view.vue'
+import routerView from './components/router-view.vue'
 import { computed, defineComponent } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+import { useSearch } from '@/hooks/states'
+
 export default defineComponent({
   components: {
     menus,
     navs,
-    TagsView
+    TagsView,
+    SearchView,
+    routerView
   },
   setup() {
     const store = useStore().state.settings.drawerSetting
+    const route = useRoute()
     // collapse为false表示折叠，true表示展开
     const collapse = computed(() => !!store.defaultMenu)
+    const meta = computed(() => route.meta)
 
     function isCollapse (e) {
       collapse.value = e
@@ -63,7 +84,9 @@ export default defineComponent({
     return {
       store,
       collapse,
-      isCollapse
+      isCollapse,
+      meta,
+      useSearch
     }
   }
 })

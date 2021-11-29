@@ -40,6 +40,7 @@ const state: UserState = {
   vToken: Cookies.get('vToken'),
   userInfo: {},
   menus: [],
+  // 在store中初始写入了一个不可删除的tag：home
   tags: [
     {
       path: '/',
@@ -214,7 +215,6 @@ const actions = {
         store.commit(TYPE.LOGIN_THEN, res.data)
         // 筛选可展示menu到state.menu中
         menusFilter(res.data.menus)
-        console.log('state.menus', state.menus)
         resolve(state.menus)
       })
     })

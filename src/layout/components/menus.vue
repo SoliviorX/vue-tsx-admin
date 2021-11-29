@@ -1,8 +1,16 @@
 <template>
-  <div class="menus" :style="{width: !collapse 
-  ? '65px'
-  : ($store.state.settings.drawerSetting?.leftMargin || 200) + 'px'}">
-    <menus-logo :collapse="collapse" v-if="$store.state.settings.drawerSetting?.isLogo"></menus-logo>
+  <div
+    class="menus"
+    :style="{
+      width: !collapse
+        ? '65px'
+        : ($store.state.settings.drawerSetting?.leftMargin || 200) + 'px',
+    }"
+  >
+    <menus-logo
+      :collapse="collapse"
+      v-if="$store.state.settings.drawerSetting?.isLogo"
+    ></menus-logo>
 
     <el-scrollbar style="height: calc(100vh - 50px)">
       <el-menu
@@ -24,34 +32,38 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
+// 组件
 import menusLogo from "./menus-logo.vue";
 import menusItem from "./menus-item.vue";
-import { defineComponent, computed } from 'vue'
 import { useRoute } from "vue-router";
+import { defineComponent, computed } from 'vue';
+import store from '@/store/index'
 
 export default defineComponent({
-    components: {
-        menusLogo,
-        menusItem
+  name: "menus",
+  components: {
+    menusLogo,
+    menusItem,
+  },
+  props: {
+    collapse: {
+      type: Boolean,
+      default: true,
     },
-    props: {
-        collapse: {
-            type: Boolean,
-            default: true,
-        },
-    },
-    setup() {
-        const route = useRoute()
-        const menuActive = computed(() => route.name)
-        return {
-            menuActive
-        }
-    }
+  },
+  setup() {
+    const route = useRoute();
+    const menuActive = computed(() => route.name)
+    console.log('user sate', store.state.user)
+    return {
+      menuActive
+    };
+  },
 })
 </script>
 
-<style lang="scss">
+<style lang='scss'>
 .element::-webkit-scrollbar {
   width: 0 !important;
 }

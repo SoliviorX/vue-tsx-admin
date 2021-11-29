@@ -27,29 +27,38 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script>
 import defaultData from '@/config/default-data'
-
-export default defineComponent({
-    name: 'logo',
-    props: {
-        collapse: {
-            type: Boolean,
-            default: true
-        }
-    },
-    setup(props) {
-        const systemName = ref<string>(defaultData.name)
-        return {
-            systemName
-        }
+export default {
+  name: 'logo',
+  props: {
+    collapse: {
+      type: Boolean,
+      default: true
     }
-})
+  },
+  data () {
+    return {
+      systemName: defaultData.name
+    }
+  }
+};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+/* .logo-leave-active,.logo-enter-active{
+  transition: opacity .4s;
+}
+.logo-enter-from,.logo-leave-to{
+  opacity: 0;
+}
+.logo-leave-from,.logo-enter-to{
+  opacity: 1;
+} */
+
 .menus-logo {
+  /* box-sizing: border-box; */
+  /* padding: 10px; */
   min-height: 50px;
   width: 100%;
   height: 50px;

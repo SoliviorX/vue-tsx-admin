@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!item.hidden" :class="{_submenu: collapse}">
+  <div v-if="!item.hidden" :class="{ _submenu: collapse }">
     <el-sub-menu
       :index="item.name"
       v-if="item.children && item.children.length > 1"
@@ -13,7 +13,7 @@
             textOverflow: 'ellipsis',
           }"
         >
-          <i :class="[item.meta?.icon, defaultData.iconfont]"></i>
+          <i :class="[item.meta.icon, defaultData.iconfont]"></i>
           <span class="metaTitle" v-show="!collapse || count !== 1">
             {{
               item.meta && item.meta.locale
@@ -25,14 +25,14 @@
       </template>
       <menusItem
         :collapse="collapse"
-        v-for="(each) in item.children"
+        v-for="each in item.children"
         :key="each.name"
         :item="each"
         :count="count + 1"
       ></menusItem>
     </el-sub-menu>
 
-    <!-- 没有子菜单的情况下显示 -->
+    <!-- 二级菜单下有菜单的情况下显示 -->
     <el-menu-item
       :data-count="count"
       :index="(item.children && item.children[0].name) || item.name"
@@ -44,23 +44,25 @@
       <!-- 外链 -->
       <a
         :href="
-          (item.children && item.children[0].meta?.url) || (item.meta && item.meta.url)
+          (item.children && item.children[0].meta.url) ||
+          (item.meta && item.meta.url)
         "
         target="_black"
         v-if="
-          (item.children && item.children[0].meta?.url) ||
+          (item.children && item.children[0].meta.url) ||
           (item.meta && item.meta.url)
         "
       >
         <i
           :class="[
-            (item.children && item.children[0].meta?.icon) ||
+            (item.children && item.children[0].meta.icon) ||
               (item.meta && item.meta.icon) ||
               '',
             defaultData.iconfont,
           ]"
         ></i>
-        <span class="metaTitle" v-show="!collapse || count !== 1">
+
+        <span class="metaTitle">
           {{ text(item) }}
         </span>
       </a>
@@ -73,7 +75,7 @@
       >
         <i
           :class="[
-            (item.children && item.children[0].meta?.icon) ||
+            (item.children && item.children[0].meta.icon) ||
               (item.meta && item.meta.icon) ||
               '',
             defaultData.iconfont,
@@ -112,24 +114,25 @@ export default defineComponent({
       default: true
     },
   },
-  setup () {
+  setup (props, context) {
     const { t } = useI18n()
 
     const text = (e) => {
       // 判断有没有locale
-      if ((e.children && e.children[0].meta?.locale) || e.meta?.locale) {
-        return t((e.children && e.children[0].meta?.locale) || e.meta?.locale)
+      if ((e.children && e.children[0].meta.locale) || e.meta.locale) {
+        return t((e.children && e.children[0].meta.locale) || e.meta.locale)
         // 没有就使用title
-      } else if ((e.children && e.children[0].meta?.title) || e.meta?.title) {
-        return (e.children && e.children[0].meta?.title) || e.meta?.title
+      } else if ((e.children && e.children[0].meta.title) || e.meta.title) {
+        return (e.children && e.children[0].meta.title) || e.meta.title
       } else {
         return 'null'
       }
     }
 
     return {
-      t,
       text
+      //   parentIdx,
+      //   getIndex
     }
   }
 });
@@ -139,6 +142,7 @@ export default defineComponent({
 ._submenu > li :deep() .el-sub-menu__icon-arrow {
   display: none;
 }
+
 .metaTitle {
   margin-left: 6px;
 }
