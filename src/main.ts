@@ -52,6 +52,10 @@ if ((import.meta as any).env.MODE !== 'development') {
 import { mockXHR } from '../mock/index'
 mockXHR()
 
+// loading动画
+import { NextLoading } from '@/utils/loading'
+NextLoading.start()
+
 // 向所有组件实例注入自定义属性声明
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {

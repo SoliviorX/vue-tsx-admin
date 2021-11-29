@@ -12,7 +12,7 @@ router.beforeEach((to, from, next) => {
   Nprogress.start()
 
   if (
-    // window.location.host === 'Shideshanxx.github.io' &&
+    window.location.host === 'Shideshanxx.github.io' &&
     (import.meta as any).env.BASE_URL === '/vite-tsx-vue-admin/' &&
     to.path === '/vite-tsx-vue-admin/'
   ) {
@@ -47,6 +47,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(() => {
+  // 页面跳转完成之后取消动画
   NextLoading.done()
   Nprogress.done()
 })
