@@ -25,6 +25,7 @@ import './styles/index.scss'
 
 // 全局组件，在main.ts中进行注册即可在所有组件中直接使用。
 import uploadFile from './components/upload-file/index.vue'
+import viewName from './components/view-name/index.vue'
 
 // 路由守卫
 import './router-guard'
@@ -52,7 +53,7 @@ if ((import.meta as any).env.MODE !== 'development') {
 import { mockXHR } from '../mock/index'
 mockXHR()
 
-// loading动画
+// app启动动画
 import { NextLoading } from '@/utils/loading'
 NextLoading.start()
 
@@ -106,6 +107,7 @@ directive(app)
 
 // 注册全局组件
 app.component('upload-file', uploadFile)
+app.component('view-name', viewName)
 
 /**
  * 每个 Vue 应用都会暴露一个 config 对象
