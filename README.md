@@ -2,7 +2,7 @@
 
 该项目是使用 vite + vue3 + typescript 实现的后台管理系统模版，预览图如下
 
-![vite+vue3+ts admin](http://cdn.zjutshideshan.cn/vite-tsx-vue3.jpg)
+![](http://cdn.zjutshideshan.cn/vite-tsx-vue3.jpg)
 
 ## Vue 3 + Typescript + Vite
 
