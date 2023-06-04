@@ -1,4 +1,10 @@
-# Vue 3 + Typescript + Vite
+## 简介
+
+该项目是使用 vite + vue3 + typescript 实现的后台管理系统模版，预览图如下
+
+![vite+vue3+ts admin](http://cdn.zjutshideshan.cn/vite-tsx-vue3.jpg)
+
+## Vue 3 + Typescript + Vite
 
 This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
